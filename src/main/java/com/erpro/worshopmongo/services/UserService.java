@@ -24,12 +24,18 @@ public class UserService {
 		if (user == null) {
 			throw new ObjectNotFoundException("Object Invalid");
 		}
-		return user.get();
+		//return user.get();
+		return user.orElseThrow(() -> new ObjectNotFoundException("Object Inserlid"));
 	}
 	public User insert(User obj) {
 		return repo.insert(obj);
 	}
 	public User fromDTO(UserDTO obj) {
 		return new User(obj.getId(), obj.getName(), obj.getEmail());
+	}
+	public void delete(String id) {
+		//Faz uma busca primeiro
+		findById(id);
+		repo.deleteById(id);
 	}
 }
