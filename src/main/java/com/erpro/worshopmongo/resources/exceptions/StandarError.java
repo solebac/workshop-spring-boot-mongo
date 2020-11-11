@@ -1,12 +1,8 @@
-package com.erpro.worshopmongo.exceptions;
+package com.erpro.worshopmongo.resources.exceptions;
 
 import java.io.Serializable;
 
 public class StandarError implements Serializable{
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Long timestamp;
 	private Integer status;
@@ -14,8 +10,6 @@ public class StandarError implements Serializable{
 	private String message;
 	private String path;
 	public StandarError() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	public StandarError(Long timestamp, Integer status, String error, String message, String path) {
 		super();
@@ -55,7 +49,4 @@ public class StandarError implements Serializable{
 	public void setPath(String path) {
 		this.path = path;
 	}
-	
-	
-
 }
