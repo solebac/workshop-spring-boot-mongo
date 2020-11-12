@@ -39,7 +39,12 @@ public class Instantiation implements CommandLineRunner{
 		Post post1 = new Post(null, sdf.parse("11/11/2020"), "Partiu viagem I", "De ferias para roça.", new AuthorDTO(maria));
 		Post post2 = new Post(null, sdf.parse("10/11/2020"), "Partiu viagem II", "De ferias para Araxá.", new AuthorDTO(maria));
 		
+		//Recurso aninhado
 		postRepository.saveAll(Arrays.asList(post1, post2));
+		
+		//Recurso referencia
+		maria.getPosts().addAll(Arrays.asList(post1, post2));
+		userRepository.save(maria);
 		
 	}
 
